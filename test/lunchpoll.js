@@ -1,15 +1,15 @@
 require('coffee-script')
 
 var Helper = require('hubot-test-helper')
-var helper = new Helper('../src/coffeepoll.js')
+var helper = new Helper('../src/lunchpoll.js')
 var messages = require('../lib/messages')
 var expect = require('chai').expect
 var _ = require('lodash')
 var nock = require('nock')
 
-describe('coffeepoll', function () {
+describe('lunchpoll', function () {
   var pollStartedTest = function (command, room) {
-    var msg = '@hubot coffeepoll ' + command
+    var msg = '@hubot lunchpoll ' + command
     var user = 'username'
     var bot = 'hubot'
 
@@ -70,7 +70,7 @@ describe('coffeepoll', function () {
   })
 
   it('configure a place near', function () {
-    this.room.user.say('username', '@hubot coffeepoll near Paris')
+    this.room.user.say('username', '@hubot lunchpoll near Paris')
     expect(this.brain.near).to.eql('Paris')
   })
 
@@ -95,7 +95,7 @@ describe('coffeepoll', function () {
         .query(true)
         .reply(400, error)
 
-      this.room.user.say('username', '@hubot coffeepoll start')
+      this.room.user.say('username', '@hubot lunchpoll start')
       setTimeout(done, 50)
     })
 
@@ -109,7 +109,7 @@ describe('coffeepoll', function () {
 
   context('with a poll started', function () {
     beforeEach(function (done) {
-      this.room.user.say('username', '@hubot coffeepoll start')
+      this.room.user.say('username', '@hubot lunchpoll start')
       setTimeout(done, 50)
     })
 
@@ -118,13 +118,13 @@ describe('coffeepoll', function () {
     })
 
     it('counts the votes', function () {
-      this.room.user.say('username', '@hubot coffeepoll vote 0')
+      this.room.user.say('username', '@hubot lunchpoll vote 0')
       expect(this.brain.votes[0]).to.eql(1)
     })
 
     it('tries to vote twice', function () {
       var user = 'username'
-      var msg = '@hubot coffeepoll vote 0'
+      var msg = '@hubot lunchpoll vote 0'
 
       this.room.user.say(user, msg)
       this.room.user.say(user, msg)
@@ -137,7 +137,7 @@ describe('coffeepoll', function () {
       var bot = 'hubot'
       var user = 'username'
 
-      this.room.user.say(user, '@hubot coffeepoll start')
+      this.room.user.say(user, '@hubot lunchpoll start')
 
       expect(_.last(this.room.messages)).to.eql([bot, messages.errorAlreadyStarted])
     })
@@ -145,7 +145,7 @@ describe('coffeepoll', function () {
     it('tries to vote in a option that does not exist', function () {
       var bot = 'hubot'
       var user = 'username'
-      var msg = '@hubot coffeepoll vote 99'
+      var msg = '@hubot lunchpoll vote 99'
 
       this.room.user.say(user, msg)
 
@@ -157,15 +157,15 @@ describe('coffeepoll', function () {
       var user = 'username'
       var winner = this.brain.options[0]
 
-      this.room.user.say(user, '@hubot coffeepoll vote 0')
-      this.room.user.say(user, '@hubot coffeepoll finish')
+      this.room.user.say(user, '@hubot lunchpoll vote 0')
+      this.room.user.say(user, '@hubot lunchpoll finish')
 
       expect(_.last(this.room.messages)).to.eql(['hubot', messages.win(winner)])
     })
 
     context('and finished', function () {
       it('cleans out the poll data', function () {
-        this.room.user.say('username', '@hubot coffeepoll finish')
+        this.room.user.say('username', '@hubot lunchpoll finish')
 
         expect(this.brain.participants).to.eql({})
         expect(this.brain.options).to.eql([])

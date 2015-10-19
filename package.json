@@ -32,11 +32,12 @@
       "afterEach"
     ]
   },
-  "dependencies": {},
-  "peerDependencies": {
-    "hubot": "2.x",
+  "dependencies": {
     "node-foursquare-venues": "^1.1.0",
     "lodash": "^3.10.1"
+  },
+  "peerDependencies": {
+    "hubot": "2.x"
   },
   "main": "./index",
   "devDependencies": {
