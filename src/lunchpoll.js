@@ -106,7 +106,7 @@ module.exports = function (bot) {
 
   bot.respond(/lunchpoll vote (.*)/i, function(res) {
     var username = res.message.user.name.toLowerCase();
-    var number = res.match[1];
+    var number = res.match[1] - 1; // we've incremented the vote index by 1 for the display, so we decrement it here
 
     if (isUserAlreadyVoted(username)) return res.send(messages.errorAlreadyVoted(username));
     if (isPollNotStarted()) return res.send(messages.errorStart(bot.name));
