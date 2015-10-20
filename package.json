@@ -1,18 +1,18 @@
 {
-  "name": "hubot-coffeepoll",
+  "name": "hubot-lunchpoll",
   "version": "1.0.6",
   "author": "Leonardo Couto <leonardowrc@gmail.com>",
   "license": "MIT",
-  "description": "A hubot plugin to help your team to choose where to drink a coffee !",
+  "description": "A hubot plugin to help your team to choose where to lunch!",
   "scripts": {
     "test": "mocha --compilers coffee:coffee-script"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wallacyyy/hubot-coffeepoll"
+    "url": "https://github.com/azevedo-252/hubot-lunchpoll"
   },
   "bugs": {
-    "url": "https://github.com/wallacyyy/hubot-coffeepoll/issues"
+    "url": "https://github.com/azevedo-252/hubot-lunchpoll/issues"
   },
   "keywords": [
     "hubot",
