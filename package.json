@@ -5,7 +5,7 @@
   "license": "MIT",
   "description": "A hubot plugin to help your team to choose where to lunch!",
   "scripts": {
-    "test": "mocha --compilers coffee:coffee-script"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,8 @@
     "plugin",
     "foursquare",
     "javascript",
-    "coffee",
+    "restaurants",
+    "lunch",
     "chat"
   ],
   "standard": {
@@ -42,7 +43,6 @@
   "main": "./index",
   "devDependencies": {
     "chai": "^2.1.1",
-    "coffee-script": "1.6.3",
     "dotenv": "^1.2.0",
     "hubot": "2.x",
     "hubot-test-helper": "0.0.7",

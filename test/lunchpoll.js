@@ -1,6 +1,4 @@
-require('coffee-script')
-
-var Helper = require('hubot-test-helper')
+var Helper = require('hubot-test-helper');
 var helper = new Helper('../src/lunchpoll.js')
 var messages = require('../lib/messages')
 var expect = require('chai').expect

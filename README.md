@@ -1,21 +1,20 @@
-# Hubot-coffeepoll
-[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard) [![Build Status](https://travis-ci.org/wallacyyy/hubot-coffeepoll.svg)](https://travis-ci.org/wallacyyy/hubot-coffeepoll) [![npm version](https://badge.fury.io/js/hubot-coffeepoll.svg)](http://badge.fury.io/js/hubot-coffeepoll) 
+# Hubot-lunchpoll
 
-Hubot-coffeepoll is a Hubot plugin that helps your team to decide where to drink a coffee.
-The hubot will search for coffee shops nearby and show options to people in the chat vote.
+Hubot-lunchpoll is a Hubot plugin that helps your team decide where to lunch.
+The hubot will search for restaurants nearby and show options to people in the chat vote.
 
 ## Configuration
 
 ### Foursquare
 
-You need to register at [Foursquare](https://developer.foursquare.com/) and set your credentials on this environment variables:
+You need to register at [Foursquare](https://developer.foursquare.com/) and set your credentials on these environment variables:
 
 ```
 FOURSQUARE_CLIENT_ID = xxx
 FOURSQUARE_CLIENT_SECRET = xxx
 ```
 
-To run it locally just set this variables on a .env file in the project root and load it with
+To run it locally just set these variables on a .env file in the project root and load it with
 a library like [```dotenv```](https://www.npmjs.com/package/dotenv).
 
 ### Install
@@ -23,7 +22,7 @@ a library like [```dotenv```](https://www.npmjs.com/package/dotenv).
 Install the plugin:
 
 ```
-npm install hubot-coffeepoll --save
+npm install hubot-lunchpoll --save
 ```
 
 And add it to your ```external-scripts.json``` file:
@@ -31,40 +30,30 @@ And add it to your ```external-scripts.json``` file:
 ```
 [
   ...
-  "hubot-coffeepoll"
+  "hubot-lunchpoll"
   ...
 ]
 ```
 
 ## Usage 
 
-### Configuring the place for next polls
-```
-hubot coffeepoll near <text>
-```
-Examples:
-```
-hubot coffeepoll near Champs-Elysées
-hubot coffeepoll near my street
-```
-![](http://ditrospecta.com/images/2015-10-03-hubot-plugin/plugin-near-gif.gif)
 ### Starting the poll
 ```
-hubot coffeepoll start 
+hubot lunchpoll start 
 ```
 ![](http://ditrospecta.com/images/2015-10-03-hubot-plugin/plugin-start-gif.gif)
 ### Voting
 ```
-hubot coffeepoll vote <number>
+hubot lunchpoll vote <number>
 ```
 ![](http://ditrospecta.com/images/2015-10-03-hubot-plugin/plugin-vote-gif.gif)
 ### Showing the partial results
 ```
-hubot coffeepoll partial
+hubot lunchpoll partial
 ```
 ![](http://ditrospecta.com/images/2015-10-03-hubot-plugin/plugin-partial-gif.gif)
 ### Finishing the poll and announcing the winner
 ```
-hubot coffeepoll finish
+hubot lunchpoll finish
 ```
 ![](http://ditrospecta.com/images/2015-10-03-hubot-plugin/plugin-finish-gif.gif)
