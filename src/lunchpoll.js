@@ -3,7 +3,6 @@
 //   Lunchpoll will create poll with random restaurants nearby.
 //
 // Commands:
-//   hubot lunchpoll near <text> - Configure the place for next polls
 //   hubot lunchpoll start - Start the poll
 //   hubot lunchpoll vote <number> - Vote in one of poll options
 //   hubot lunchpoll partial - Show the partial results
@@ -28,7 +27,6 @@ module.exports = function (bot) {
   brain.set('sw', '41.541606,-8.436277');
   brain.set('section', 'food');
 
-  brain.set('near', 'Braga')
   brain.set('participants', participants)
   brain.set('options', options)
   brain.set('votes', votes)
@@ -53,23 +51,9 @@ module.exports = function (bot) {
     return typeof votes[vote] === 'undefined';
   }
 
-  bot.respond(/lunchpoll near (.*)/i, function (res) {
-    var place = res.match[1]
-
-    brain.set('near', place)
-
-    return res.send(messages.places(place))
-  })
-
   bot.respond(/lunchpoll start/i, function (res) {
     if (!isPollNotStarted()) return res.send(messages.errorAlreadyStarted);
 
-    var near = brain.get('near');
-    // var params = {
-    //   near: near,
-    //   categoryId: messages.category,
-    //   radius: 1000
-    // }
     var params = {
       ne: brain.get('ne'),
       sw: brain.get('sw'),
@@ -77,7 +61,6 @@ module.exports = function (bot) {
     };
 
     return foursquare.venues.explore(params, function(error, payload) {
-      if (error === 400) return res.send(messages.errorPlaceNotFound(near));
       if (error) return res.send(error);
 
       var message = messages.hello(bot.name)
