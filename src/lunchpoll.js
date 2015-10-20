@@ -93,7 +93,7 @@ module.exports = function (bot) {
 
       _.forEach(sampleRestaurants, function(r, i) {
         var venue = r.venue;
-        message += (i+1) + ': ' + venue.name + ' (' + url + venue.id + ')\n';
+        message += (i+1) + ': ' + venue.name + ' (' + messages.url + venue.id + ')\n';
         message += venue.location.address + '\n';
         message += venue.categories[0].name + '\n\n';
         options[i] = venue;
